@@ -1,0 +1,132 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: rgb(94, 57, 57);
+    border-radius: 100px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+.logo img {
+  height: 100px;
+  width: auto;
+  align-self: center;
+  border: solid black;
+  border-radius: 100px;
+}
+.nav {
+    margin: 0 !important;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 3px;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav a{
+    color: #fff;
+    text-decoration: none;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+.nav a:hover{
+    font-weight: bold;
+}
+footer {
+  background-color: rgb(94, 57, 57);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  border: solid black;
+  border-radius: 100px;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
+.search-form, .filter-form {
+    padding: .5rem 0;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    column-gap: 5px;
+}
+.filter-form {
+    grid-template-columns: 1fr;
+}
+.search-form .btn-sm{
+    line-height: 1;
+    font-size: 0.9rem;
+}
+.search-form input,
+.filter-form input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding-top: 3px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1rem;
+    padding-bottom: 4px;
+}
+.filter-form input {
+    line-height: 1.5;
+}
+.cards {
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+.cardBody {
+    margin-top: 20px;
+}
+.single-card-people {
+    width: 19%;
+}
+.single-card-movie {
+    width: 24%;
+}
+.single-card-playing {
+    width: 15%;
+}
+#now-playing .card-text{
+    height: 100px;
+    overflow: hidden;
+}
+.single-card-tv {
+    width: 19%;
+}
+.tv-show .card-text{
+    height: 100px;
+    overflow: hidden;
+}
+.single-card-on-air{
+    width: 15%;
+}
+#on-air-today .card-text{
+    height: 100px;
+    overflow: hidden;
+}
+
+.all-movies .single-card-movie {
+    width: 15%;
+}
+
+@media(min-width: 765px){
+    nav {
+        grid-template-columns: 1fr;
+    }
+}

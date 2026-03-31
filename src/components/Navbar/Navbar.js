@@ -5,7 +5,9 @@ function Navbar() {
   
   return (
     <header>
+     <a href='index.html'>
       <div className="logo"><img src="./imagenes/Logo.png" alt="logo" /></div>
+      </a> 
       <nav>
         <ul className="nav">
           <li><a href="/">Home</a></li>
