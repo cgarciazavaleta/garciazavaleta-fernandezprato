@@ -27,6 +27,7 @@ class Cajapopulares extends Component {
             this.state.datos.slice(0,4).map((datos,idx) => <Ppopulares key={datos.id}
               data={datos}/>)}
            </section>
+           <a href="/Todaspopulares" className="btn-ver-todas">Ver todas</a>
            </>
         )
     }

@@ -11,7 +11,8 @@ function Navbar() {
       <nav>
         <ul className="nav">
           <li><a href="/">Home</a></li>
-          {usuarioLogueado ? (<li><a href="/">Favoritos</a></li>) : (<><li><a href="/">Login</a></li><li><a href="/">Crear Cuenta</a></li></>)}
+          <li><a href="/peliculas">Películas</a></li>
+          {usuarioLogueado ? (<li><a href="/peliculas">Películas</a></li>)(<li><a href="/">Favoritos</a></li>) : (<><li><a href="/">Login</a></li><li><a href="/">Crear Cuenta</a></li></>)}
         </ul>
       </nav>
     </header>

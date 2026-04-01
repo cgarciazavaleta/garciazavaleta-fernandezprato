@@ -27,6 +27,7 @@ class Cajatoprated extends Component {
             this.state.datos.slice(0,4).map((datos,idx) => <Ptoprated key={datos.id}
               data={datos}/>)}
            </section>
+           <a href="/Todastoprated" className="btn-ver-todas">Ver todas</a>
            </>
         )
     }
