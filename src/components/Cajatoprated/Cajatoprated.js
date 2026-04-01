@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import Ppopulares from "../Ppopulares/Ppopulares"
+import Ptoprated from "../Ptoprated/Ptoprated"
 
-class Cajapopulares extends Component {
+class Cajatoprated extends Component {
     constructor(props){
         super(props)
         this.state ={
@@ -9,7 +9,7 @@ class Cajapopulares extends Component {
         }
     }
         componentDidMount(){
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=3f1682dada002836e815351506ac3816")
+        fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=3f1682dada002836e815351506ac3816")
             .then(response => response.json())
             .then(data=> this.setState(
                 {datos:data.results}
@@ -20,15 +20,15 @@ class Cajapopulares extends Component {
     render(){
         return(
             <>
-            <h2 className="alert alert-primary">Peliculas Populares</h2>
+            <h2 className="alert alert-primary">Peliculas Top Rated</h2>
            <section className="row cards" id="movies">
             {this.state.datos.length === 0?
             <h3>Cargando...</h3>:
-            this.state.datos.slice(0,4).map((datos,idx) => <Ppopulares key={datos.id}
+            this.state.datos.slice(0,4).map((datos,idx) => <Ptoprated key={datos.id}
               data={datos}/>)}
            </section>
            </>
         )
     }
 }
-export default Cajapopulares
+export default Cajatoprated

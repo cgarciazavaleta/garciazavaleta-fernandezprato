@@ -1,12 +1,14 @@
 import React, { Component } from "react"
+import Buscador from "../../components/Buscador/Buscador"
+import Cajapopulares from "../../components/Cajapopulares/Cajapopulares"
+import Cajatoprated from "../../components/Cajatoprated/Cajatoprated"
 
 function Home(){
     return(
             <>
-           <section>
-            <h1>Peliculas Populares</h1>
-            
-           </section>
+            <Buscador/>
+            <Cajapopulares/>
+            <Cajatoprated/>
            </>
         )
 }

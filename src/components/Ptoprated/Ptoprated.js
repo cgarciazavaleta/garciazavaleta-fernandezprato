@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-class Ppopulares extends Component{
+class Ptoprated extends Component{
     constructor(props){
         super(props)
         this.state ={
@@ -19,4 +19,4 @@ class Ppopulares extends Component{
     }
 }
 
-export default Ppopulares
+export default Ptoprated
