@@ -35,6 +35,7 @@ class Movies extends Component {
                 <h2 className="alert alert-primary">Todas las películas</h2>
                 <form className="filter-form">
                     <input type="text" placeholder="Buscar pelicula" />
+                    <button type="submit" className="btn btn-success btn-sm">Buscar</button>
                 </form>
                 <section className="row cards" id="movies">
                     {

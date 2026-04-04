@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Buscador from "../../components/Buscador/Buscador"
+import Buscador from "../../components/buscador/Buscador"
 import Cajapopulares from "../../components/Cajapopulares/Cajapopulares"
 import Cajatoprated from "../../components/Cajatoprated/Cajatoprated"
 import Movies from "../../components/Movies/Movies"
