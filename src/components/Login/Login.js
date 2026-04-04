@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-class Crearcuenta extends Component{
+class Login extends Component{
     constructor(props){
         super(props)
         this.state ={
@@ -12,7 +12,7 @@ class Crearcuenta extends Component{
         event.preventDefault();
         let usuario = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.contraseña
         };
         let usuarioAString = JSON.stringify(usuario);
         localStorage.setItem("usuario", usuarioAString);
@@ -45,13 +45,13 @@ class Crearcuenta extends Component{
                             <label for="password">Contraseña</label>
                             <input type="password" className="form-control" id="password" placeholder="Ingresá tu contraseña" onChange={(event)=>this.controlarCambiosPassword(event)} value={this.state.password}/>
                         </div>
-                        <button type="submit" className="btn btn-primary btn-block">Registrarse</button>
+                        <button type="submit" className="btn btn-primary btn-block">Iniciar sesión</button>
                     </form>
-                    <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/iniciarse">Iniciar sesion</Link> </p>
+                    <p className="mt-3 text-center">¿No tenés cuenta?<Link to="/registrarse"> Registrarse </Link> </p>
                 </div>
             </div>
         )
     }
 }
 
-export default Crearcuenta
+export default Login
