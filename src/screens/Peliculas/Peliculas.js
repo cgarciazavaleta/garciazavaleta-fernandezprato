@@ -1,12 +1,12 @@
 import React, { Component } from "react"
-import Peliculas from "../../components/Movies/Movies"
+import Movies from "../../components/Movies/Movies"
 
-function Home(){
+function Peliculas(){
     return(
             <>
-            <Peliculas />
+            <Movies/>
            </>
         )
 }
 
-export default Home
+export default Peliculas

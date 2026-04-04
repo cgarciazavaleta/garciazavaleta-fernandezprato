@@ -1,5 +1,6 @@
 import React from 'react';
-function Navbar() {
+import {Link} from "react-router-dom/cjs/react-router-dom.min"
+function Navbar(props) {
 
     let usuarioLogueado = false;
   
@@ -10,9 +11,9 @@ function Navbar() {
       </a> 
       <nav>
         <ul className="nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="/peliculas">Películas</a></li>
-          {usuarioLogueado ? (<li><a href="/peliculas">Películas</a></li>)(<li><a href="/">Favoritos</a></li>) : (<><li><a href="/">Login</a></li><li><a href="/">Crear Cuenta</a></li></>)}
+           {
+                props.menu.map((elementoMenu,idx)=><li key={elementoMenu + idx}> <Link to={elementoMenu.Path}>{elementoMenu.Nombre}</Link> </li>)
+            }
         </ul>
       </nav>
     </header>
