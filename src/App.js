@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer"
 import Home from './screens/Home/Home';
 import Peliculas from './screens/Peliculas/Peliculas'; 
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import Registrarse from './screens/Registrarse/Registrarse';
 import Iniciarse from './screens/Iniciarse/Iniciarse';
 import Detallepelicula from './screens/Detallepelicula/Detallepelicula';
