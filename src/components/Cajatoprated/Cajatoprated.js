@@ -25,10 +25,10 @@ class Cajatoprated extends Component {
             {this.state.datos.length === 0?
             <h3>Cargando...</h3>:
             this.state.datos.map((datos,idx) => 
-            <Ptoprated 
+            idx < 4? <Ptoprated 
                 key={datos.id} 
                 data={datos}
-            />)}
+            />: null)}
            </section>
            </>
         )

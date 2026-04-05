@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Registrarse from './screens/Registrarse/Registrarse';
 import Iniciarse from './screens/Iniciarse/Iniciarse';
 import Detallepelicula from './screens/Detallepelicula/Detallepelicula';
+import SearchResults from './screens/SearchResults/SearchResults';
 
 function App() {
    let menu = [
@@ -26,6 +27,7 @@ function App() {
         <Route path="/registrarse" component={Registrarse} />
         <Route path="/iniciarse" component={Iniciarse} />
         <Route path="/detallepelicula/id/:id" component={Detallepelicula} />
+        <Route path="/resultados/:busqueda" component={SearchResults} />
       </Switch>
    <Footer />
    

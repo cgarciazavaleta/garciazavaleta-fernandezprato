@@ -24,8 +24,8 @@ class Cajapopulares extends Component {
            <section className="row cards" id="movies">
             {this.state.datos.length === 0?
             <h3>Cargando...</h3>:
-            this.state.datos.slice(0,4).map((datos,idx) => 
-            <Ppopulares key={datos.id} data={datos}/>)}
+            this.state.datos.map((datos,idx) => 
+            idx < 4? <Ppopulares key={datos.id} data={datos}/>: null)}
            </section>
            </>
         )
