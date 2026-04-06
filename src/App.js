@@ -2,11 +2,13 @@ import React from 'react';
 import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer"
 import Home from './screens/Home/Home';
-import Peliculas from './screens/Peliculas/Peliculas'; 
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import Peliculas from './screens/Peliculas/Peliculas'; 
+import Allseries from './screens/Allseries/Allseries'
 import Registrarse from './screens/Registrarse/Registrarse';
 import Iniciarse from './screens/Iniciarse/Iniciarse';
 import Detallepelicula from './screens/Detallepelicula/Detallepelicula';
+import Detalleserie from './screens/Detalleserie/Detalleserie'
 import SearchResults from './screens/SearchResults/SearchResults';
 
 function App() {
@@ -24,9 +26,11 @@ function App() {
     <Switch>
         <Route path="/" exact={true} component={Home} />
         <Route path="/peliculas" component={Peliculas} />
+        <Route path="/series" component={Allseries} />
         <Route path="/registrarse" component={Registrarse} />
         <Route path="/iniciarse" component={Iniciarse} />
         <Route path="/detallepelicula/id/:id" component={Detallepelicula} />
+        <Route path="/detalleserie/id/:id" component={Detalleserie} />
         <Route path="/resultados/:busqueda" component={SearchResults} />
       </Switch>
    <Footer />
