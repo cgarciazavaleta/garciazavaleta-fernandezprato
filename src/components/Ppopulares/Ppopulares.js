@@ -5,14 +5,45 @@ import {Link} from "react-router-dom/cjs/react-router-dom.min"
 class Ppopulares extends Component{
     constructor(props){
         super(props)
-        this.state ={
+        this.state =({
             datos : [],
-        }
+            favoritos : false
+        })
     }
     verMas(){
         this.setState({
             verMas: !this.state.verMas
         })
+    }
+    componentDidMount(){
+        let storage = localStorage.getItem('favoritos');
+        let favParseado = JSON.parse(storage);
+        if (favParseado !== null){
+            this.state({
+                favoritos: true 
+            })
+        }
+     
+        
+    }
+    agregarFavorito(id){
+        let storage = localStorage.getItem('favoritos')
+        let favParseado = JSON.parse(storage)
+        favoritos = []
+        if (favParseado !== null){
+            favParseado.push(id)
+            let storageParseado = JSON.stringify(favParseado)
+            localStorage.setItem('favoritos', storageParseado)
+        }
+        else{
+            let array = [id]
+             let storageParseado = JSON.stringify(favParseado)
+             localStorage.setItem('favoritos', storageParseado)
+            this.state({
+                favoritos: true 
+            })
+
+        }
     }
      render(){
         return(
@@ -24,7 +55,9 @@ class Ppopulares extends Component{
                     <Link to={`/detallepelicula/id/${this.props.data.id}`}>
                         <button className="btn btn-primary" onClick={()=> this.verMas()}>{this.state.verMas? "Ver menos":"Ver mas"}</button> 
                     </Link>
-                    <a href="" className="btn alert-primary">♥️</a>
+                    <button className="btn alert-primary" onClick={() => this.manejarFavoritos(this.props.data.id)}>
+                        {this.state.favorito ? "💔" : "♥️"}
+                    </button>
                 </div>
             </article>
         )
