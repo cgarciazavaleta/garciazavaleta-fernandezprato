@@ -10,13 +10,14 @@ import Iniciarse from './screens/Iniciarse/Iniciarse';
 import Detallepelicula from './screens/Detallepelicula/Detallepelicula';
 import Detalleserie from './screens/Detalleserie/Detalleserie'
 import SearchResults from './screens/SearchResults/SearchResults';
+import FavoritosPagina from './screens/FavoritosPagina/FavoritosPagina';
 
 function App() {
    let menu = [
     {Nombre:"Home", Path:"/"},
     {Nombre:"Películas", Path:"/peliculas"},
     {Nombre:"Series", Path:"/series"},
-    {Nombre:"Favoritas", Path:"/favoritas"},
+    {Nombre:"Favoritos", Path:"/favoritospagina"},
     {Nombre:"Log in", Path:"/iniciarse"},
     {Nombre:"Crear cuenta", Path:"/registrarse"},
   ]
@@ -32,6 +33,7 @@ function App() {
         <Route path="/detallepelicula/id/:id" component={Detallepelicula} />
         <Route path="/detalleserie/id/:id" component={Detalleserie} />
         <Route path="/resultados/:busqueda" component={SearchResults} />
+        <Route path="/favoritospagina" component={FavoritosPagina} />
       </Switch>
    <Footer />
    

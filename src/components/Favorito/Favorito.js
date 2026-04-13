@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Favoritos extends Component {
+class Favorito extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,9 +21,7 @@ class Favoritos extends Component {
                     <p className="card-text">{this.props.data.overview}</p>
                     
                     <Link to={`/detallepelicula/id/${this.props.data.id}`}>
-                        <button className="btn btn-primary" onClick={() => this.verMas()}>
-                            {this.state.verMas ? "Ver menos" : "Ver mas"}
-                        </button> 
+                           Ver mas
                     </Link>
                 </div>
             </article>
