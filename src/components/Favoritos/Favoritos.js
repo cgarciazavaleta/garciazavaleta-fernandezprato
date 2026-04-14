@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Favorito from "../Favorito/Favorito";
+import Movie from "../Movie/Movie";
 
 class Favoritos extends Component {
     constructor(props){
@@ -31,11 +31,12 @@ class Favoritos extends Component {
     render(){
         return(
             <>
+                  <h2 className="alert alert-primary">Peliculas Favoritas</h2>
                 <section className="row cards" id="movies">
                     {
                         this.state.datos.length === 0 ?
                         <h3>Cargando...</h3> :
-                        this.state.datos.map((pelicula,idx)=> <Favorito key={pelicula.id} data={pelicula}/>)
+                        this.state.datos.map((pelicula,idx)=> <Movie key={pelicula.id} data={pelicula}/>)
                     
                         
                     }

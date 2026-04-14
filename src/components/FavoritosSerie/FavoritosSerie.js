@@ -10,27 +10,32 @@ class FavoritosSeries extends Component {
     }
 
     componentDidMount(){
-        let storage = localStorage.getItem("favoritos")
+        let storage = localStorage.getItem("favoritosSerie")
+        if(storage){
+
         let storageParseado = JSON.parse(storage)
         console.log(storageParseado)
-        let arrayFavoritos= []
+        let arrayFavoritosSerie= []
         storageParseado.map(id=>
         fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=3f1682dada002836e815351506ac3816`)
             .then(response => response.json())
             .then(data => 
                 {
-                    arrayFavoritos.push(data)
+                    arrayFavoritosSerie.push(data)
                     this.setState(
-                { datos: arrayFavoritos },
+                { datos: arrayFavoritosSerie },
                 console.log(this.state.datos)
             )})
             .catch(error => console.log(error))
         )
     }
+    
+    }
 
     render(){
         return(
             <>
+                  <h2 className="alert alert-primary">Series Favoritas</h2>
                 <section className="row cards" id="movies">
                     {
                         this.state.datos.length === 0 ?

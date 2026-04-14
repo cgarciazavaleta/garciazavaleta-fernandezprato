@@ -6,9 +6,7 @@ function Navbar(props) {
   
   return (
     <header>
-     <a href='index.html'>
       <div className="logo"><img src="./imagenes/Logo.png" alt="logo" /></div>
-      </a> 
       <nav>
         <ul className="nav">
            {

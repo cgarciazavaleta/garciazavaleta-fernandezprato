@@ -17,12 +17,15 @@ class Ppopulares extends Component{
     }
     componentDidMount(){
         let storage = localStorage.getItem('favoritos');
+        if (storage){
+
         let favParseado = JSON.parse(storage);
+
         if (favParseado.includes(this.props.data.id)){
             this.setState({
                 favoritos: true 
             })
-        } 
+        } }
     }
     agregarFavorito(id){
         let storage = localStorage.getItem('favoritos')

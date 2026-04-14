@@ -6,7 +6,7 @@ class Serie extends Component {
         super(props)
         this.state =({
             datos : [],
-            favoritos : false
+            favoritosSerie : false
         })
     }
     verMas(){
@@ -15,43 +15,45 @@ class Serie extends Component {
         })
     }
     componentDidMount(){
-        let storage = localStorage.getItem('favoritos');
+        let storage = localStorage.getItem('favoritosSerie');
+        if (storage){
         let favParseado = JSON.parse(storage);
         if (favParseado.includes(this.props.data.id)){
             this.setState({
-                favoritos: true 
+                favoritosSerie: true 
             })
-        } 
+        } }
     }
-    agregarFavorito(id){
-        let storage = localStorage.getItem('favoritos')
+    agregarFavoritoSerie(id){
+        let storage = localStorage.getItem('favoritosSerie')
         let favParseado = JSON.parse(storage)
-        let favoritos = []
+        let favoritosSerie = []
         if (favParseado !== null){
             favParseado.push(id)
             let storageParseado = JSON.stringify(favParseado)
-            localStorage.setItem('favoritos', storageParseado)
+            localStorage.setItem('favoritosSerie', storageParseado)
             
         }
         else{
             let array = [id]
             let storageParseado = JSON.stringify(array)
-            localStorage.setItem('favoritos', storageParseado)
+            localStorage.setItem('favoritosSerie', storageParseado)
         }
         this.setState({
-                favoritos: true 
+                favoritosSerie: true 
             })
     }
-    sacarFavorito(id){
-        let storage = localStorage.getItem('favoritos')
+    sacarFavoritoSerie(id){
+        let storage = localStorage.getItem('favoritosSerie')
         let favParseado = JSON.parse(storage)
         let favFiltrados = favParseado.filter(pelicula=>pelicula!=id)
         let storageParseado = JSON.stringify(favFiltrados)
-        localStorage.setItem('favoritos', storageParseado)
+        localStorage.setItem('favoritosSerie', storageParseado)
          this.setState({
-                favoritos: false 
+                favoritosSerie: false 
             })
     }
+
 
      render(){
         return(
@@ -64,11 +66,11 @@ class Serie extends Component {
                     <Link to={`/detalleserie/id/${this.props.data.id}`}>
                         <button className="btn btn-primary" >Ver detalle</button> 
                     </Link>
-                    {this.state.favoritos?
-                    <button className="btn alert-primary" onClick={() => this.sacarFavorito(this.props.data.id)}>
+                    {this.state.favoritosSerie?
+                    <button className="btn alert-primary" onClick={() => this.sacarFavoritoSerie(this.props.data.id)}>
                         💔
                     </button>:
-                    <button className="btn alert-primary" onClick={() => this.agregarFavorito(this.props.data.id)}>
+                    <button className="btn alert-primary" onClick={() => this.agregarFavoritoSerie(this.props.data.id)}>
                        ♥️
                     </button>}
                 </div>
