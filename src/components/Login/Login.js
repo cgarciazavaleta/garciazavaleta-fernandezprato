@@ -1,5 +1,9 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies()
+
 class Login extends Component{
     constructor(props){
         super(props)
@@ -10,15 +14,29 @@ class Login extends Component{
     }
     evitarSubmit(event){
         event.preventDefault();
-        let usuario = {
-            email: this.state.email,
-            password: this.state.contraseña
-        };
-        let usuarioAString = JSON.stringify(usuario);
-        localStorage.setItem("usuario", usuarioAString);
-        let recuperoStorage = localStorage.getItem("usuario");
-        let usuarioRecuperado = JSON.parse(recuperoStorage);
-        console.log(usuarioRecuperado);
+        let storageUsuario = localStorage.getItem("usuarios")
+
+        if (storageUsuario == null){
+            alert("Los datos ingresados no son validos")
+        }
+        let usuarioParse = JSON.parse(storageUsuario)
+
+        let usuarioFiltrado = usuarioParse.filter(user => user.email === this.state.email)
+        // si no encuentra nada va a hacer un array vacio 
+        // si encuentra algo devuleve el array con ese usuario
+
+        if(usuarioFiltrado.length === 0){
+        alert("El usuario ingresado no existe");
+        } // si no encuentra nada en el filtrado quiere decir que el usuario no existe porq no esta en el local storage que es lo que se fija el filter
+
+        let unUsuario = usuarioFiltrado[0]
+        if(unUsuario.password !== this.state.password){
+            alert("Los datos ingresados no son validos")
+        }
+
+        sessionStorage.setItem("usuarioEnSesion", JSON.stringify({sesionActiva: true}))
+        cookies.set("auth-user", this.state.email)
+        this.props.history.push("/")
 
     }
     controlarCambiosEmail(event){

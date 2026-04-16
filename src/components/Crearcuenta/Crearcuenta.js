@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import Cookies from "universal-cookie"
+const cookies = new Cookies()
+
 class Crearcuenta extends Component{
     constructor(props){
         super(props)
@@ -16,6 +19,32 @@ class Crearcuenta extends Component{
             password: this.state.password
         };
         
+        let recuperoStorage = localStorage.getItem("usuario");
+        let usuariosGuardados = []
+
+        let usuariosRepetido = usuariosGuardados.filter(usuario => usuario.email === this.state.email);
+
+        if (recuperoStorage !== null) {
+            usuariosGuardados = JSON.parse(recuperoStorage);
+        }
+
+        if(this.state.email === "" || this.state.password === ""){
+            alert("Por favor complete todos los campos.")
+        }
+
+        else if (usuariosRepetido.length > 0 ){
+            alert("El email ya esta en uso")
+        }
+        else if (this.state.password.length < 6){
+            alert("La contraseña debe tener al menos 6 caracteres")
+        }
+        else{
+            let nuevoUsuario ={
+                email:this.state.email,
+                password: this.state.password
+            }
+        }
+        usuario.push
         let usuarioAString = JSON.stringify(usuario);
         localStorage.setItem("usuario", usuarioAString);
         let usuarioRecuperado = JSON.parse(recuperoStorage);
@@ -26,14 +55,6 @@ class Crearcuenta extends Component{
         this.setState({
             email:event.target.value
         })
-        event.preventDefault();
-        let recuperoStorage = localStorage.getItem("usuario");
-        let usuariosGuardados = []
-        if (recuperoStorage !== null) {
-            usuariosGuardados = JSON.parse(recuperoStorage);
-        }
-        let usuariosConEseEmail = usuariosGuardados.filter(usuario => usuario.email === this.state.email);
-     
     }
     controlarCambiosPassword(event){
         this.setState({

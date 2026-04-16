@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer"
 import Home from './screens/Home/Home';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Peliculas from './screens/Peliculas/Peliculas'; 
 import Allseries from './screens/Allseries/Allseries'
 import Registrarse from './screens/Registrarse/Registrarse';
@@ -36,7 +36,7 @@ function App() {
         <Route path="/favoritospagina" component={FavoritosPagina} />
       </Switch>
    <Footer />
-   
+
    </>
   );
 }
