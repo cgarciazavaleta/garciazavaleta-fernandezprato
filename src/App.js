@@ -11,6 +11,7 @@ import Detallepelicula from './screens/Detallepelicula/Detallepelicula';
 import Detalleserie from './screens/Detalleserie/Detalleserie'
 import SearchResults from './screens/SearchResults/SearchResults';
 import FavoritosPagina from './screens/FavoritosPagina/FavoritosPagina';
+import PaginaNoEnontrada from './screens/PaginaNoEncontrada/PaginaNoEncontrada';
 
 function App() {
    let menu = [
@@ -34,6 +35,7 @@ function App() {
         <Route path="/detalleserie/id/:id" component={Detalleserie} />
         <Route path="/resultados/:busqueda" component={SearchResults} />
         <Route path="/favoritospagina" component={FavoritosPagina} />
+        <Route path="/*" component={PaginaNoEnontrada} />
       </Switch>
    <Footer />
 
