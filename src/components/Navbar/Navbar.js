@@ -33,8 +33,8 @@ class Navbar extends Component{
               <ul className="nav">
                 {
                   this.props.menu.map((elementoMenu,idx)=>
-                  <li key={elementoMenu + idx} className={elementoMenu.Nombre === "Iniciarse"? (this.state.usuarioLogueado == null ? "show" : "hide"):
-                    elementoMenu.Nombre === "Registrarse" ? (this.state.usuarioLogueado == null ? "show" : "hide"):
+                  <li key={elementoMenu + idx} className={elementoMenu.Nombre === "Log in"? (this.state.usuarioLogueado == null ? "show" : "hide"):
+                    elementoMenu.Nombre === "Crear cuenta" ? (this.state.usuarioLogueado == null ? "show" : "hide"):
                     elementoMenu.Nombre === "Favoritos" ? (this.state.usuarioLogueado != null ? "show" : "hide"):
                     "show"}> 
                     <Link to={elementoMenu.Path}>{elementoMenu.Nombre}</Link> 
