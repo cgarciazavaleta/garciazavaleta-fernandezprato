@@ -15,7 +15,6 @@ function Rated() {
     return(
             <>
               <Navbar menu={menu}/>
-                        <Buscador />
                         <Toprated/>
                 </>
         )
