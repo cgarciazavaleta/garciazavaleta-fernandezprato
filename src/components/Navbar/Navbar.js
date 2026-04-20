@@ -11,13 +11,13 @@ class Navbar extends Component{
         }
     }
 
-    componentDidUpdate() {
-        if (this.state.cookie !== cookies.get("usuarioCookies")) {
-            this.setState({
-                usuarioLogueado: cookies.get("usuarioCookies")
-            });
-        }
-    }
+    // componentDidUpdate() {
+    //     if (this.state.cookie !== cookies.get("usuarioCookies")) {
+    //         this.setState({
+    //             usuarioLogueado: cookies.get("usuarioCookies")
+    //         });
+    //     }
+    // }
 
     cerrarSesion() {
         cookies.remove("usuarioCookies");
@@ -27,7 +27,7 @@ class Navbar extends Component{
     render(){
       return (
           <header>
-            <div className="logo"><img src="./imagenes/Logo.png" alt="logo" /></div>
+            <div className="logo"><img src="/imagenes/Logo.png" alt="logo" /></div>
             <nav>
               <ul className="nav">
                 {

@@ -5,6 +5,7 @@ class Buscador extends Component{
         super(props)
         this.state ={
             valor:"",
+            tipo: "movie"
         }
     }
     controlarCambios(event){
@@ -12,14 +13,21 @@ class Buscador extends Component{
     }
     enviarForm(event){
         event.preventDefault();
-        this.props.history.push("/resultados/"+this.state.valor)
+        this.props.history.push("/resultados/"+ this.state.tipo + "/" + this.state.valor)
     }
+cambiarTipo(event){
+    this.setState({tipo:event.target.value})
+}
      render(){
         return(
            <section>
             <form  className="search-form" onSubmit={(event)=>this.enviarForm(event)}>
                 <input type="text" className="" onChange={(event)=>this.controlarCambios(event)} value={this.state.valor} />
                 <button type="submit" className="btn btn-success btn-sm">Buscar</button>
+                <select onChange={(event) => this.cambiarTipo(event)} value={this.state.tipo}>
+                        <option value="movie">Películas</option>
+                        <option value="tv">Series</option>
+                </select>
            </form>
            </section>
         )

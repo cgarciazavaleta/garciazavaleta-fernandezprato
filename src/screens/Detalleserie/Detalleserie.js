@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Navbar from '../../components/Navbar/Navbar';
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
+
 
 class Detalleserie extends Component {
     constructor(props) {
@@ -69,8 +71,17 @@ class Detalleserie extends Component {
 
     render() {
         let usuarioLogueado = cookies.get("usuarioCookies");
-        return (
+        let menu = [
+                {Nombre:"Home", Path:"/"},
+                {Nombre:"Películas Populares", Path:"/peliculas"},
+                {Nombre:"Peliculas Top Rated", Path:"/rated"},
+                {Nombre:"Favoritos", Path:"/favoritospagina"},
+                {Nombre:"Log in", Path:"/iniciarse"},
+                {Nombre:"Crear cuenta", Path:"/registrarse"},
+        ]
+    return(
             <>
+              <Navbar menu={menu}/>
                 <section>
                     {!this.state.serie.name ?
                         (<h3>Cargando...</h3>) : (

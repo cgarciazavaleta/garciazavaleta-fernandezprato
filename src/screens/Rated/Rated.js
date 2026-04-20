@@ -1,10 +1,10 @@
 import React, { Component } from "react"
-import Movies from "../../components/Movies/Movies"
-import Filtro from "../../components/Filtro/Filtro"
+import Toprated from "../../components/Toprated/Toprated"
+import Buscador from "../../components/Buscador/Buscador"
 import Navbar from "../../components/Navbar/Navbar"
 
-function Peliculas(){
-     let menu = [
+function Rated() {
+        let menu = [
                 {Nombre:"Home", Path:"/"},
                 {Nombre:"Películas Populares", Path:"/peliculas"},
                 {Nombre:"Peliculas Top Rated", Path:"/rated"},
@@ -15,9 +15,10 @@ function Peliculas(){
     return(
             <>
               <Navbar menu={menu}/>
-            <Movies/>
-           </>
+                        <Buscador />
+                        <Toprated/>
+                </>
         )
 }
 
-export default Peliculas
+export default Rated

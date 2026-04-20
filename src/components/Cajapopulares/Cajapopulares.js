@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Ppopulares from "../Ppopulares/Ppopulares"
+import { Link } from "react-router-dom"
 
 class Cajapopulares extends Component {
     constructor(props){
@@ -25,6 +26,9 @@ class Cajapopulares extends Component {
             {this.state.datos.length === 0 ?
             <h3>Cargando...</h3> :
             this.state.datos.filter((datos, idx) => idx < 4).map((datos) => (<Ppopulares key={datos.id} data={datos} />)) }
+            <Link to={"/peliculas"}>
+                        <button className="btn btn-primary" >Ver todas</button> 
+                    </Link>
            </section>
            </>
         )
