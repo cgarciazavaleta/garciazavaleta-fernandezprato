@@ -28,15 +28,16 @@ class Iniciarse extends Component{
         if(usuarioFiltrado.length === 0){
         alert("El usuario ingresado no existe");
         } // si no encuentra nada en el filtrado quiere decir que el usuario no existe porq no esta en el local storage que es lo que se fija el filter
-
-        let unUsuario = usuarioFiltrado[0]
-        if(unUsuario.password !== this.state.password){
-            alert("Los datos ingresados no son validos")
+        else if (usuarioFiltrado[0].password !== this.state.password){
+        alert("Los datos ingresados no son validos")
         }
-
+        else{
+        alert("Inicio de sesión exitoso");
         sessionStorage.setItem("usuarioCookies", JSON.stringify({sesionActiva: true}))
         cookies.set("usuarioCookies", this.state.email)
         this.props.history.push("/")
+        }
+
 
     }
     controlarCambiosEmail(event){

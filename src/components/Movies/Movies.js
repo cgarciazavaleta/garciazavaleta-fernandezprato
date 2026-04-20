@@ -33,9 +33,7 @@ cargarMas() {
                     {
                         this.state.datos.length === 0 ?
                         <h3>Cargando...</h3> :
-                        this.state.datos.slice(0, this.state.cantidad).map((pelicula) =>
-                            <Movie key={pelicula.id} data={pelicula} />
-                        )
+                        this.state.datos.filter((datos, idx) => idx < 4).map((pelicula) => (<Movie key={pelicula.id} data={pelicula} />)) 
                     }
                 </section>
                <button className="btn-ver-todas" onClick={() => this.cargarMas()}>Cargar más</button>

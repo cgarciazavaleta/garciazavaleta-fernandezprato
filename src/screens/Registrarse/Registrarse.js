@@ -39,15 +39,10 @@ class Registrarse extends Component{
             };
         usuariosGuardados.push(nuevoUsuario);
         localStorage.setItem("usuarios",JSON.stringify(usuariosGuardados));
-      
         alert("Registro exitoso");
-
-        this.setState({ 
-            email: "", 
-            password: "" });
+        this.props.history.push("/iniciarse");
         }
 
-        this.props.history.push("/iniciarse");
     }
     controlarCambiosEmail(event){
         this.setState({

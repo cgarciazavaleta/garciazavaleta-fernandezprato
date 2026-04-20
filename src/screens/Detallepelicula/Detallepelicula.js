@@ -1,10 +1,13 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 class Detallepelicula extends Component{
     constructor(props){
         super(props);
         this.state = {
-            personaje: {}
+            personaje: {},
+            favoritos : false
         }
     }
     componentDidMount(){
@@ -15,8 +18,49 @@ class Detallepelicula extends Component{
                 personaje: data
             }))
             .catch(error => console.log(error))
+        
+        let storage = localStorage.getItem('favoritos');
+        if (storage){
+        let favParseado = JSON.parse(storage);
+        if (favParseado.includes(this.state.personaje.id)){
+            this.setState({
+                favoritos: true 
+            })
+        } }
     }
+
+    agregarFavorito(id){
+        let storage = localStorage.getItem('favoritos')
+        let favParseado = JSON.parse(storage)
+        let favoritos = []
+        if (favParseado !== null){
+            favParseado.push(id)
+            let storageParseado = JSON.stringify(favParseado)
+            localStorage.setItem('favoritos', storageParseado)
+            
+        }
+        else{
+            let array = [id]
+            let storageParseado = JSON.stringify(array)
+            localStorage.setItem('favoritos', storageParseado)
+        }
+        this.setState({
+                favoritos: true 
+            })
+    }
+    sacarFavorito(id){
+        let storage = localStorage.getItem('favoritos')
+        let favParseado = JSON.parse(storage)
+        let favFiltrados = favParseado.filter(pelicula=>pelicula!=id)
+        let storageParseado = JSON.stringify(favFiltrados)
+        localStorage.setItem('favoritos', storageParseado)
+         this.setState({
+                favoritos: false 
+            })
+    }
+
     render(){
+        let usuarioLogueado = cookies.get("usuarioCookies");
         return(
             <>
            <section>
@@ -33,6 +77,17 @@ class Detallepelicula extends Component{
                         <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong> {this.state.personaje.release_date}</p>
                         <p className="mt-0 mb-0 length"><strong>Duración:</strong> {this.state.personaje.runtime} min</p>
                         <p className="mt-0" id="votes"><strong>Puntuación:</strong> {this.state.personaje.vote_average}</p>
+                        {usuarioLogueado?
+                        <div>
+                        {this.state.favoritos?
+                        <button className="btn alert-primary" onClick={() => this.sacarFavorito(this.state.personaje.id)}>
+                            💔
+                        </button>:
+                        <button className="btn alert-primary" onClick={() => this.agregarFavorito(this.state.personaje.id)}>
+                            ♥️
+                        </button>} 
+                        </div>
+                        :null}
                     </section>
                 </section>
             </>

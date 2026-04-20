@@ -25,7 +25,6 @@ class Navbar extends Component{
             usuarioLogueado: cookies.get("usuarioCookies")})
     }
     render(){
-      let usuarioLogueado = cookies.get("usuarioCookies");
       return (
           <header>
             <div className="logo"><img src="./imagenes/Logo.png" alt="logo" /></div>
