@@ -14,19 +14,25 @@ class Detallepelicula extends Component{
         let id = this.props.match.params.id
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=3f1682dada002836e815351506ac3816`)
             .then(response => response.json())
-            .then(data=> this.setState({
-                personaje: data
-            }))
-            .catch(error => console.log(error))
-        
-        let storage = localStorage.getItem('favoritos');
-        if (storage){
-        let favParseado = JSON.parse(storage);
-        if (favParseado.includes(this.state.personaje.id)){
-            this.setState({
-                favoritos: true 
+            .then(data=> {
+                this.setState({
+                    personaje: data
+                },
+                    () => {
+                        let storage = localStorage.getItem('favoritos');
+                        if (storage) {
+                            console.log("llego")
+                            let favParseado = JSON.parse(storage);
+                            if (favParseado.includes(this.state.personaje.id)) {
+                                this.setState({
+                                    favoritos: true
+                                })
+                            }
+                        }
+                    }
+                )
             })
-        } }
+            .catch(error => console.log(error))
     }
 
     agregarFavorito(id){
