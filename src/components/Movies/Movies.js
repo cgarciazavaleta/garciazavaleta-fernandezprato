@@ -9,7 +9,7 @@ class Movies extends Component {
             datos: [],
             datosFiltrados:[],
             valor: "",
-            cantidad: 4
+            cantidad: 8
         }
     }
 
@@ -27,7 +27,7 @@ class Movies extends Component {
 
     cargarMas() {
         this.setState({
-            cantidad: this.state.cantidad + 4
+            cantidad: this.state.cantidad + 8
         });
     }
 

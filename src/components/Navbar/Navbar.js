@@ -11,19 +11,6 @@ class Navbar extends Component{
         }
     }
 
-    // componentDidUpdate() {
-    //     if (this.state.cookie !== cookies.get("usuarioCookies")) {
-    //         this.setState({
-    //             usuarioLogueado: cookies.get("usuarioCookies")
-    //         });
-    //     }
-    // }
-
-    cerrarSesion() {
-        cookies.remove("usuarioCookies");
-        this.setState({
-            usuarioLogueado: cookies.get("usuarioCookies")})
-    }
     render(){
       return (
           <header>
@@ -38,15 +25,6 @@ class Navbar extends Component{
                     "show"}> 
                     <Link to={elementoMenu.Path}>{elementoMenu.Nombre}</Link> 
                   </li>)
-                }
-                {
-                  this.state.usuarioLogueado != null ?
-                    <li>
-                      <button onClick={() => this.cerrarSesion()}>
-                          Cerrar sesión
-                      </button>
-                    </li>
-                    : null
                 }
               </ul>
             </nav>
