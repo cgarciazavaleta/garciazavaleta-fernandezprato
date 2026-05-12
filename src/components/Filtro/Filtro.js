@@ -14,7 +14,6 @@ class Filtro extends Component{
     }
     enviarForm(event){
         event.preventDefault();
-        this.props.history.push("/resultados/" + this.state.valor)
     }
     
      render(){

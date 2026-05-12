@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import Movies from "../../components/Movies/Movies"
-import Filtro from "../../components/Filtro/Filtro"
 import Navbar from "../../components/Navbar/Navbar"
 
 function Peliculas(){
